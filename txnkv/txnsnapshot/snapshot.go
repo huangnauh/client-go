@@ -153,7 +153,7 @@ func NewTiKVSnapshot(store kvstore, ts uint64, replicaReadSeed uint32) *KVSnapsh
 	}
 }
 
-const batchGetMaxBackoff = 600000 // 10 minutes
+const batchGetMaxBackoff = 20000
 
 // SetSnapshotTS resets the timestamp for reads.
 func (s *KVSnapshot) SetSnapshotTS(ts uint64) {
@@ -454,7 +454,7 @@ func (s *KVSnapshot) batchGetSingleRegion(bo *retry.Backoffer, batch batchKeys, 
 	}
 }
 
-const getMaxBackoff = 600000 // 10 minutes
+const getMaxBackoff = 20000
 
 // Get gets the value for key k from snapshot.
 func (s *KVSnapshot) Get(ctx context.Context, k []byte) ([]byte, error) {

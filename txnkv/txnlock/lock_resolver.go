@@ -508,6 +508,7 @@ func (lr *LockResolver) getTxnStatusFromLock(bo *retry.Backoffer, l *Lock, calle
 			// For pessimistic lock resolving, if the primary lock does not exist and rollbackIfNotExist is true,
 			// The Action_LockNotExistDoNothing will be returned as the status.
 			rollbackIfNotExist = true
+			continue
 		} else {
 			if l.LockType == kvrpcpb.Op_PessimisticLock {
 				return TxnStatus{ttl: l.TTL}, nil
