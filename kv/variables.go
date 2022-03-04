@@ -45,6 +45,9 @@ type Variables struct {
 	// Pointer to SessionVars.Killed
 	// Killed is a flag to indicate that this query is killed.
 	Killed *uint32
+
+	// DisableLockBackOff is a flag to indicate that this query returns an error when a write conflict is detected.
+	DisableLockBackOff bool
 }
 
 // NewVariables create a new Variables instance with default values.
